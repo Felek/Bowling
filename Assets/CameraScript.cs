@@ -5,36 +5,50 @@ public class CameraScript : MonoBehaviour {
 	Camera cameraStart;
 	Camera cameraKula;
 	Camera cameraBok;
-	Camera[3] cameras;
+	Camera[] cameras;
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
+		cameras = Camera.allCameras; 
+		cameras[0].enabled = true;
+		cameras[1].enabled = false;
+		cameras[2].enabled = false;
+		//Camera.allCameras [2].enabled = false;
+        //cameraBok = cameras [0];
+        //cameraKula = cameras [1];
+        //cameraStart = cameras [2];
+        //	cameraStart = GameObject.Find("Start Camera");
+        //	cameraKula = GameObject.Find("Kula Camera");
+        //	cameraBok = GameObject.Find("Bok Camera");
+        //cameraStart.SetActive(false);
 
-		Camera.GetAllCameras (cameras);
-		cameraBok = cameras [0];
-		cameraKula = cameras [1];
-		cameraStart = cameras [2];
-	//	cameraStart = GameObject.Find("Start Camera");
-	//	cameraKula = GameObject.Find("Kula Camera");
-	//	cameraBok = GameObject.Find("Bok Camera");
-		//cameraStart.SetActive(false);
-		cameraBok.enabled = false;
-		cameraKula.enabled = false;
-		cameraStart.enabled = true;
-		//cameraKula.SetActive(false);
-		//cameraBok.SetActive(true);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-    	 if (Input.GetKeyDown(KeyCode.F))
+        //cameraStart.enabled = true;
+        //cameraBok.enabled = false;
+        //cameraKula.enabled = false;
+        //cameraKula.SetActive(false);
+        //cameraBok.SetActive(true);
+    }
+
+    // Update is called once per frame
+    void Update ()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
 		 {
-			//cameraStart.SetActive(false);
-		//	cameraBok.SetActive(false);
-		//	cameraKula.SetActive(true);
-			
-			cameraBok.enabled = false;
-			cameraKula.enabled = true;
-			cameraStart.enabled = false;
+			cameras[0].enabled = true;
+			cameras[1].enabled = false;
+			cameras[2].enabled = false;
     	 }
-	}
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+			cameras[1].enabled = true;
+			cameras[0].enabled = false;
+			cameras[2].enabled = false;
+        }
+		if (Input.GetKeyDown(KeyCode.F3))
+		{
+			cameras[2].enabled = true;
+			cameras[0].enabled = false;
+			cameras[1].enabled = false;
+		}
+    }
 }

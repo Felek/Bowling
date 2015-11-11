@@ -19,7 +19,7 @@ public class KulaBehaviour : MonoBehaviour
     SilaBehaviour strengthBar;              // pasek siły
     RotationBehaviour rotationBar;          // pasek rotacji - czerwony rotacja w lewo, żółty rotacja w prawo
 
-    // Use this for initialization
+    // Use this for initialization6
     void Start()
     {
         flag = false;

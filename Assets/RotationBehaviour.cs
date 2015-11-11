@@ -41,7 +41,7 @@ public class RotationBehaviour : MonoBehaviour
             if (timecount > 1 || timecount < 0)
             {
                 stoptime += timecount * 2;
-                kierunek = -kierunek;
+                kierunek *= -1;
             }
             // zmiana koloru paska rotacji
             gameObject.GetComponent<Renderer>().material.color = new Color(1, timecount, (float)0.02, 1);
