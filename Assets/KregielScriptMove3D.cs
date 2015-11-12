@@ -24,7 +24,7 @@ public class KregielScriptMove3D : MonoBehaviour {
 	void Update()
 	{
 		if (Input.GetKeyDown (KeyCode.F12)) 
-			move = true;
+			move = !move;
 		
 		if (move)
 		{

@@ -17,7 +17,7 @@ public class KregielScriptMoveRectilinear : MonoBehaviour {
 	void Update () 
 	{
 		if (Input.GetKeyDown (KeyCode.F10))
-			move = true;
+			move = !move;
 		if (move) 
 		{
 			time += Time.deltaTime;
