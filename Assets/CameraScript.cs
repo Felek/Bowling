@@ -5,28 +5,12 @@ public class CameraScript : MonoBehaviour {
 	Camera cameraStart;
 	Camera cameraKula;
 	Camera cameraBok;
-	Camera[] cameras;
+	Camera[] cameras = new Camera[3];
+
 	// Use this for initialization
 	void Start ()
     {
 		cameras = Camera.allCameras; 
-		cameras[0].enabled = true;
-		cameras[1].enabled = false;
-		cameras[2].enabled = false;
-		//Camera.allCameras [2].enabled = false;
-        //cameraBok = cameras [0];
-        //cameraKula = cameras [1];
-        //cameraStart = cameras [2];
-        //	cameraStart = GameObject.Find("Start Camera");
-        //	cameraKula = GameObject.Find("Kula Camera");
-        //	cameraBok = GameObject.Find("Bok Camera");
-        //cameraStart.SetActive(false);
-
-        //cameraStart.enabled = true;
-        //cameraBok.enabled = false;
-        //cameraKula.enabled = false;
-        //cameraKula.SetActive(false);
-        //cameraBok.SetActive(true);
     }
 
     // Update is called once per frame
