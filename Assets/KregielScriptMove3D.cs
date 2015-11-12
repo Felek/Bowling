@@ -23,7 +23,7 @@ public class KregielScriptMove3D : MonoBehaviour {
 	/// </summary>
 	void Update()
 	{
-		if (Input.GetKeyDown (KeyCode.F11)) 
+		if (Input.GetKeyDown (KeyCode.F12)) 
 			move = true;
 		
 		if (move)
