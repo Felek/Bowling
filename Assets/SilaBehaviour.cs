@@ -3,10 +3,8 @@ using System.Collections;
 
 public class SilaBehaviour : MonoBehaviour
 {
-    float timecount;
-    float stoptime = 0;
-    float starttime;
     int kierunek = 1;
+    float time = 0.0f;
 
 	/// <summary>
 	/// Określa czy siła została ustalona czy nie <see cref="SilaBehaviour"/>.
@@ -24,32 +22,36 @@ public class SilaBehaviour : MonoBehaviour
 	/// </summary>
     void Start()
     {
-        starttime = Time.time;
         Stopped = false;
     }
 
-	/// <summary>
-	/// Update - określenie siły rzutu - reakcja na klawisz spacja - zatrzymanie wartości siły zależnej od aktualnego koloru paska siły (czerwony - mocny rzut, żółty - słaby).
-	/// </summary>
+    /// <summary>
+    /// Update - określenie siły rzutu - reakcja na klawisz spacja - zatrzymanie wartości siły zależnej od aktualnego koloru paska siły (czerwony - mocny rzut, żółty - słaby).
+    /// </summary>
     void Update()
     {
         // naciśnięcie spacji powoduje zatrzymanie zmiany koloru i ustalenie wartości siły
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Stopped = true;
-            Strength = 1 - timecount;
+            Strength = 1 - time;
         }
 
         if (!Stopped)
         {
-            timecount = Time.time * (kierunek) - stoptime * (kierunek) - starttime;
-            if (timecount >= 1.0 || timecount <= 0.0)
+            if (kierunek == 1)
+                time += Time.deltaTime;
+            else
+                time -= Time.deltaTime;
+
+            if (time > 1 || time < 0)
             {
-                stoptime += timecount * 2;
                 kierunek = -kierunek;
+                time += kierunek * Time.deltaTime;
             }
+
             // zmiana koloru paska siły
-            gameObject.GetComponent<Renderer>().material.color = new Color(1, timecount, (float)0.02, 1);
+            gameObject.GetComponent<Renderer>().material.color = new Color(1, time, (float)0.02, 1);
         }
     }
 }

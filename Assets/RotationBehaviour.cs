@@ -4,9 +4,7 @@ using System.Collections;
 public class RotationBehaviour : MonoBehaviour
 {
     SilaBehaviour strengthBar;
-    float timecount;
-    float stoptime = 0;
-    float starttime;
+    float time = 0.0f;
     int kierunek = 1;
     bool strengthBarStopped = false;
 
@@ -26,7 +24,6 @@ public class RotationBehaviour : MonoBehaviour
 	/// </summary>
     void Start()
     {
-        starttime = Time.time;
         Stopped = false;
         strengthBar = (SilaBehaviour)FindObjectOfType(typeof(SilaBehaviour));
     }
@@ -41,21 +38,25 @@ public class RotationBehaviour : MonoBehaviour
         {
             Stopped = true;
             // rotacja przyjmuje wartości <-0.5, 0.5> (kierunek rotacji w prawo lub w lewo)
-            Rotation = timecount - (float)0.5;
+            Rotation = time - (float)0.5;
         }
         if (strengthBar.Stopped)
             strengthBarStopped = true;
 
         if (!Stopped)
         {
-            timecount = Time.time * (kierunek) - stoptime * (kierunek) - starttime;
-            if (timecount > 1 || timecount < 0)
+            if (kierunek == 1)
+                time += Time.deltaTime;
+            else
+                time -= Time.deltaTime;
+
+            if (time > 1 || time < 0)
             {
-                stoptime += timecount * 2;
-                kierunek *= -1;
+                kierunek = -kierunek;
+                time += kierunek * Time.deltaTime;
             }
             // zmiana koloru paska rotacji
-            gameObject.GetComponent<Renderer>().material.color = new Color(1, timecount, (float)0.02, 1);
+            gameObject.GetComponent<Renderer>().material.color = new Color(1, time, (float)0.02, 1);
         }
     }
 }
