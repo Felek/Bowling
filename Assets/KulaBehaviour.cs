@@ -19,7 +19,9 @@ public class KulaBehaviour : MonoBehaviour
     SilaBehaviour strengthBar;              // pasek siły
     RotationBehaviour rotationBar;          // pasek rotacji - czerwony rotacja w lewo, żółty rotacja w prawo
 
-    // Use this for initialization6
+    /// <summary>
+    /// Start skryptu - inicjalizacja flag, pobranie obiektów
+    /// </summary>
     void Start()
     {
         flag = false;
@@ -40,11 +42,6 @@ public class KulaBehaviour : MonoBehaviour
             if (rotationStrength > 0)
                 rotationStrength -= 100;
         }
-       //if (Input.GetKeyDown(KeyCode.F1))
-       //{
-       //    var camera = GameObject.Find("Kula Camera");
-       //    camera.SetActive(true);
-       //}
 
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -69,8 +66,6 @@ public class KulaBehaviour : MonoBehaviour
             timecount = (float)0;
         }
         float x = timecount;
-        //  gameObject.GetComponent<Renderer>().material.color = new Color(timecount, (float)0.2, 0, 1); 
-        //rb.velocity.y += gravity * Time.deltaTime;
     }
 
     void OnMouseDown()
