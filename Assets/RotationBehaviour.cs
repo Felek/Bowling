@@ -7,7 +7,6 @@ public class RotationBehaviour : MonoBehaviour
     float timecount;
     float stoptime = 0;
     float starttime;
-    byte color = 0;
     int kierunek = 1;
     bool strengthBarStopped = false;
 

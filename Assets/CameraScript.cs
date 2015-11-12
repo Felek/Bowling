@@ -3,9 +3,6 @@ using System.Collections;
 
 public class CameraScript : MonoBehaviour 
 {
-	Camera cameraStart;
-	Camera cameraKula;
-	Camera cameraBok;
 	Camera[] cameras = new Camera[3];
 
 	/// <summary>

@@ -7,11 +7,9 @@ public class KulaBehaviour : MonoBehaviour
     Vector3 offset;
     Rigidbody rb;
     Vector3 eulerAngleVelocity;
-    float gravity = -9.8f;
     float timecount;
     float stoptime = 0;
     float starttime;
-    byte color = 0;
     float rotationStrength = 5000;
 
     bool flag = false;

@@ -6,7 +6,6 @@ public class SilaBehaviour : MonoBehaviour
     float timecount;
     float stoptime = 0;
     float starttime;
-    byte color = 0;
     int kierunek = 1;
 
 	/// <summary>
