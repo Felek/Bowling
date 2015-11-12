@@ -3,7 +3,7 @@ using System.Collections;
 
 public class KregielScriptMove3D : MonoBehaviour {
 	
-	private Transform target;
+	Transform target;
 	float angle = 0;
 	float speed = (2 * Mathf.PI) / 5;
 	float radius = 0.04f;
@@ -19,7 +19,7 @@ public class KregielScriptMove3D : MonoBehaviour {
 	}
 	
 	/// <summary>
-	/// Update - poruszanie obiektem po okręgu z kątem zmiennym sinusoidalnie (wielkie okręgi wolne, małe szybkie)
+	/// Update - złożony ruch obiektu: ruch po okręgu z kątem zmiennym sinusoidalnie (wielkie okręgi "wolne", małe "szybkie") + ruch obrotowy wokół wszystkich osi po użyciu klawisza F12
 	/// </summary>
 	void Update()
 	{

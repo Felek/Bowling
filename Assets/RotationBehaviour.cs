@@ -11,10 +11,20 @@ public class RotationBehaviour : MonoBehaviour
     int kierunek = 1;
     bool strengthBarStopped = false;
 
+	/// <summary>
+	/// Określa czy rotacja została ustalona czy nie <see cref="RotationBehaviour"/>.
+	/// </summary>
+	/// <value><c>true</c> rotacja ustalona; w przeciwnym wypadku rotacja nieustalona <c>false</c>.</value>
     public bool Stopped { get; set; }
+	/// <summary>
+	/// Określa rotację rzutu.
+	/// </summary>
+	/// <value>Rotacja rzutu.</value>
     public float Rotation { get; set; }
 
-    // Use this for initialization
+	/// <summary>
+	/// Start skryptu - wyszukanie obiektu paska siły, inicjalizacja zmiennych
+	/// </summary>
     void Start()
     {
         starttime = Time.time;
@@ -22,7 +32,9 @@ public class RotationBehaviour : MonoBehaviour
         strengthBar = (SilaBehaviour)FindObjectOfType(typeof(SilaBehaviour));
     }
 
-    // Update is called once per frame
+	/// <summary>
+	/// Update - określenie rotacji rzutu - reakcja na klawisz spacja po określeniu siły rzutu - zatrzymanie wartości rotacji zależnej od aktualnego koloru paska siły (czerwony - rotacja w lewo, żółty - w prawo).
+	/// </summary>
     void Update()
     {
         // jeśli siła została wybrana (spacja) i gracz ponownie użyje spacji zmiana kolorów paska zostanie zatrzymana a wartość rotacji określona

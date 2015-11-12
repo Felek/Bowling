@@ -3,10 +3,10 @@ using System.Collections;
 
 public class KulaBehaviour : MonoBehaviour
 {
-    private Vector3 screenPoint;
-    private Vector3 offset;
-    public Rigidbody rb;
-    public Vector3 eulerAngleVelocity;
+    Vector3 screenPoint;
+    Vector3 offset;
+    Rigidbody rb;
+    Vector3 eulerAngleVelocity;
     float gravity = -9.8f;
     float timecount;
     float stoptime = 0;

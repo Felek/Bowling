@@ -9,17 +9,29 @@ public class SilaBehaviour : MonoBehaviour
     byte color = 0;
     int kierunek = 1;
 
+	/// <summary>
+	/// Określa czy siła została ustalona czy nie <see cref="SilaBehaviour"/>.
+	/// </summary>
+	/// <value><c>true</c> siła ustalona; w przeciwnym wypadku siła nieustalona <c>false</c>.</value>
     public bool Stopped { get; set; }
+	/// <summary>
+	/// Określa siłę rzutu.
+	/// </summary>
+	/// <value>Siła rzutu.</value>
     public float Strength { get; set; }
 
-    // Use this for initialization
+	/// <summary>
+	/// Start skryptu - inicjalizacja zmiennych
+	/// </summary>
     void Start()
     {
         starttime = Time.time;
         Stopped = false;
     }
 
-    // Update is called once per frame
+	/// <summary>
+	/// Update - określenie siły rzutu - reakcja na klawisz spacja - zatrzymanie wartości siły zależnej od aktualnego koloru paska siły (czerwony - mocny rzut, żółty - słaby).
+	/// </summary>
     void Update()
     {
         // naciśnięcie spacji powoduje zatrzymanie zmiany koloru i ustalenie wartości siły

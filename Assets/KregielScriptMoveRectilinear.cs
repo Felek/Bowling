@@ -1,19 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class KregielScriptMoveRectilinear : MonoBehaviour {
-	
+public class KregielScriptMoveRectilinear : MonoBehaviour 
+{	
 	float x = 0.0f, y = -0.1f;
 	bool move = false;
 	float time = 0.0f;
 	int kierunek = 1;
-	// Use this for initialization
+
+	/// <summary>
+	/// Start skryptu - brak operacji
+	/// </summary>
 	void Start () 
-	{
-		
+	{		
 	}
 	
-	// Update is called once per frame
+	/// <summary>
+	/// Update - po naciśnięciu F10 określone obiekty (kręgle) będą poruszać się ruchem jednostajnym po kwadracie
+	/// </summary>
 	void Update () 
 	{
 		if (Input.GetKeyDown (KeyCode.F10))

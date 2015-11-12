@@ -1,19 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CameraScript : MonoBehaviour {
+public class CameraScript : MonoBehaviour 
+{
 	Camera cameraStart;
 	Camera cameraKula;
 	Camera cameraBok;
 	Camera[] cameras = new Camera[3];
 
-	// Use this for initialization
+	/// <summary>
+	/// Start skryptu - wypełnienie tablicy kamer
+	/// </summary>
 	void Start ()
     {
 		cameras = Camera.allCameras; 
     }
 
-    // Update is called once per frame
+	/// <summary>
+	/// Update - zmiana kamer po naciśnięciu F1, F2, F3 poprzez ustawianie ich parametru enabled.
+	/// </summary>
     void Update ()
     {
         if (Input.GetKeyDown(KeyCode.F1))
