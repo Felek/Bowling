@@ -18,7 +18,6 @@ public class CollideColorChange : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-        
     }
 
     void OnTriggerEnter()
