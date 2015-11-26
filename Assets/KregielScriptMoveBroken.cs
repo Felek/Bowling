@@ -5,7 +5,7 @@ using System.Collections;
 /// Skrypt, w którym zaimplementowano ruch po łamanej
 /// </summary>
 public class KregielScriptMoveBroken : MonoBehaviour {
-
+    
     bool move = false;
     float time = 0.0f;
     float x = 0.1f;
