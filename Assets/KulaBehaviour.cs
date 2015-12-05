@@ -11,6 +11,9 @@ public class KulaBehaviour : MonoBehaviour
     float stoptime = 0;
     float starttime;
     float rotationStrength = 5000;
+	const float pushForce = 20f;
+	float acceleration = 0f;
+	bool controlPressed = false;
 
     bool flag = false;
 
@@ -57,6 +60,44 @@ public class KulaBehaviour : MonoBehaviour
             gameObject.GetComponent<Renderer>().material.color = Color.blue;
         }
 
+		if (Input.GetKey (KeyCode.LeftControl) || Input.GetKey (KeyCode.RightControl)) {
+			if (!controlPressed)
+			{
+				controlPressed = true;
+				acceleration = 0f;
+			}
+			acceleration += Time.deltaTime * 150;
+			if (Input.GetKey (KeyCode.UpArrow)) {
+				rb.AddForce (Vector3.forward * acceleration, ForceMode.Acceleration);	
+			} else if (Input.GetKey (KeyCode.DownArrow)) {	
+				rb.AddForce (Vector3.back * acceleration, ForceMode.Acceleration);	
+			} else if (Input.GetKey (KeyCode.LeftArrow)) {
+				rb.AddForce (Vector3.left * acceleration, ForceMode.Acceleration);	
+			} else if (Input.GetKey (KeyCode.RightArrow)) {
+				rb.AddForce (Vector3.right * acceleration, ForceMode.Acceleration);	
+			}
+		} 
+		else  
+		{
+			controlPressed = false;
+			if (Input.GetKey (KeyCode.UpArrow)) 
+			{
+				rb.AddForce(Vector3.forward * pushForce, ForceMode.Acceleration);
+			}
+			if (Input.GetKey (KeyCode.DownArrow)) 
+			{
+				rb.AddForce(Vector3.back * pushForce, ForceMode.Acceleration);
+			}
+			if (Input.GetKey (KeyCode.LeftArrow)) 
+			{
+				rb.AddForce(Vector3.left * pushForce, ForceMode.Acceleration);
+			}
+			if (Input.GetKey (KeyCode.RightArrow)) 
+			{
+				rb.AddForce(Vector3.right * pushForce, ForceMode.Acceleration);
+			}
+		}
+		
         timecount = Time.time - starttime - stoptime;
         if (timecount > 1)
         {
